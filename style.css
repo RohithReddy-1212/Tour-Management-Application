@@ -1,0 +1,98 @@
+/* ====== GLOBAL STYLES ====== */
+*{
+  margin:0;padding:0;box-sizing:border-box
+}
+body{
+  font-family:'Segoe UI',sans-serif;background:#f7f8fc;color:#333
+}
+.hidden{
+  display:none
+}
+h1,h2,h3{
+  color:#333
+}
+a{
+  color:#667eea;cursor:pointer;text-decoration:none
+}
+a:hover{
+  text-decoration:underline
+}
+
+/* ====== AUTH PAGE ====== */
+.auth-container{
+  max-width:420px;margin:5rem auto;background:white;padding:2.5rem;
+  border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.1);text-align:center;
+}
+.auth-header{margin-bottom:1.5rem}
+.tabs{
+  display:flex;border-radius:10px;overflow:hidden;margin-bottom:2rem;border:1px solid #ddd
+}
+.tab{
+  flex:1;padding:0.8rem;background:#f4f4f4;border:none;cursor:pointer;font-weight:600;transition:.3s
+}
+.tab.active{
+  background:linear-gradient(135deg,#667eea,#764ba2);color:white
+}
+input{
+  width:100%;padding:0.9rem;border:1px solid #ccc;border-radius:8px;margin-bottom:1rem;font-size:1rem;
+}
+button{
+  padding:0.9rem 2rem;background:linear-gradient(135deg,#667eea,#764ba2);
+  color:white;border:none;border-radius:8px;cursor:pointer;font-weight:600;transition:all .3s;
+}
+button:hover{
+  transform:translateY(-2px)
+}
+
+/* ====== DASHBOARD ====== */
+header{
+  background:linear-gradient(135deg,#667eea,#764ba2);color:white;
+  padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;
+}
+header h2{color:white}
+.container{max-width:1200px;margin:2rem auto;padding:0 2rem}
+
+/* ====== TOUR GRID ====== */
+.tour-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem;
+}
+.tour-card{
+  background:white;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  overflow:hidden;transition:.3s;
+}
+.tour-card:hover{
+  transform:translateY(-6px);box-shadow:0 8px 20px rgba(0,0,0,0.15)
+}
+.tour-image{
+  height:200px;background:linear-gradient(135deg,#667eea,#764ba2);
+  display:flex;align-items:center;justify-content:center;color:white;font-size:3rem;
+}
+.tour-content{text-align:center;padding:1.2rem}
+.tour-content h3{margin-bottom:.5rem;color:#333}
+.tour-content p{color:#666;margin-bottom:1rem}
+
+/* ====== ADMIN TABLE ====== */
+table{
+  width:100%;border-collapse:collapse;background:white;border-radius:10px;overflow:hidden;
+  box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+th,td{padding:1rem;border-bottom:1px solid #eee;text-align:left}
+th{background:#667eea;color:white;text-transform:uppercase;letter-spacing:.5px}
+
+/* ====== MODAL ====== */
+.modal{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.6);display:none;justify-content:center;align-items:center;z-index:1000;
+}
+.modal-content{
+  background:white;padding:2rem;border-radius:10px;max-width:400px;width:90%;position:relative;
+}
+.close{
+  position:absolute;top:10px;right:15px;font-size:1.5rem;cursor:pointer;color:#666;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width:768px){
+  .tour-grid{grid-template-columns:1fr}
+  header{flex-direction:column;align-items:flex-start}
+}

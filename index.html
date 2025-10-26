@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TourHub - Tour Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= LOGIN ================= -->
+  <section id="loginSection" class="auth-container">
+    <div class="auth-header">
+      <h1>🌍 TourHub</h1>
+      <p>Login to continue your journey</p>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('user')">User Login</button>
+      <button class="tab" onclick="switchTab('admin')">Admin Login</button>
+    </div>
+
+    <!-- User Login -->
+    <form id="userLoginForm">
+      <input type="email" id="userEmail" placeholder="User Email" required>
+      <input type="password" id="userPassword" placeholder="Password" minlength="8" required>
+      <button type="submit">Login</button>
+      <p style="margin-top:1rem;">New user? <a onclick="showRegister()">Register here</a></p>
+    </form>
+
+    <!-- Admin Login -->
+    <form id="adminLoginForm" class="hidden">
+      <input type="email" id="adminEmail" placeholder="Admin Email" required>
+      <input type="password" id="adminPassword" placeholder="Password" minlength="8" required>
+      <button type="submit">Admin Login</button>
+    </form>
+  </section>
+
+  <!-- ================= REGISTER ================= -->
+  <section id="registerSection" class="auth-container hidden">
+    <h2>Create Your Account</h2>
+    <form id="registerForm">
+      <input type="text" id="regName" placeholder="Full Name" required>
+      <input type="email" id="regEmail" placeholder="Email" required>
+      <input type="password" id="regPassword" placeholder="Password" minlength="8" required>
+      <button type="submit">Register</button>
+    </form>
+    <p style="margin-top:1rem;"><a onclick="showLogin()">← Back to Login</a></p>
+  </section>
+
+  <!-- ================= USER DASHBOARD ================= -->
+  <section id="userDashboard" class="hidden">
+    <header>
+      <h2>Welcome, <span id="userName"></span></h2>
+      <button onclick="logout()">Logout</button>
+    </header>
+    <div class="container">
+      <h3>Available Tours</h3>
+      <div id="tourGrid" class="tour-grid"></div>
+    </div>
+  </section>
+
+  <!-- ================= ADMIN DASHBOARD ================= -->
+  <section id="adminDashboard" class="hidden">
+    <header>
+      <h2>Admin Dashboard</h2>
+      <button onclick="logout()">Logout</button>
+    </header>
+    <div class="container">
+      <h3>User Bookings</h3>
+      <table>
+        <thead>
+          <tr><th>User</th><th>Tour</th><th>Date</th></tr>
+        </thead>
+        <tbody id="bookingsTable"></tbody>
+      </table>
+
+      <h3 style="margin-top:2rem;">Add New Tour</h3>
+      <form id="addTourForm">
+        <input type="text" id="tourName" placeholder="Tour Name" required>
+        <input type="text" id="tourLocation" placeholder="Location" required>
+        <input type="number" id="tourDuration" placeholder="Duration (days)" required>
+        <input type="number" id="tourPrice" placeholder="Price ($)" required>
+        <button type="submit">Add Tour</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= BOOKING MODAL ================= -->
+  <div id="bookingModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3>Book Tour</h3>
+      <form id="bookingForm">
+        <input type="text" id="bookTourName" readonly>
+        <input type="date" id="bookDate" required>
+        <input type="number" id="bookTravelers" min="1" value="1" required>
+        <button type="submit">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
